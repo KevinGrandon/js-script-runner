@@ -1,7 +1,7 @@
 {
-  "name": "interview-scripts",
+  "name": "js-script-runner",
   "version": "1.0.0",
-  "description": "I like to interview.",
+  "description": "I like to write things with tests.",
   "scripts": {
     "test": "npm run test-scripts scripts/test/*_test.js",
     "test-scripts": "mocha --compilers js:babel-register --ui tdd -w ",
@@ -12,13 +12,16 @@
   "dependencies": {
     "babel": "^6.3.13",
     "babel-cli": "^6.3.15",
+    "babel-polyfill": "^6.3.14",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-register": "^6.3.13",
     "karma": "^0.13.15",
+    "karma-babel-preprocessor": "^6.0.1",
     "karma-chrome-launcher": "^0.2.2",
     "karma-mocha": "^0.2.1",
     "karma-sinon-chai": "^1.1.0",
+    "karma-sourcemap-loader": "^0.3.6",
     "mocha": "^2.3.4"
   },
   "devDependencies": {

@@ -23,21 +23,35 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+        'node_modules/babel-polyfill/dist/polyfill.js',
         'browser/js/*.js',
         'browser/test/*.js'
     ],
-
 
     // list of files to exclude
     exclude: [
     ],
 
-
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+    // run the bundle through the webpack and sourcemap plugins
     preprocessors: {
+        'browser/js/*.js': ['babel'],
+        'browser/test/*.js': ['babel']
     },
 
+    babelPreprocessor: {
+        options: {
+            presets: ['es2015'],
+            sourceMap: 'inline'
+        },
+        filename: function (file) {
+            return file.originalPath.replace(/\.js$/, '.es5.js');
+        },
+        sourceFileName: function (file) {
+            return file.originalPath;
+        }
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
